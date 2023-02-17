@@ -1,0 +1,18 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<block th:fragment="topMenu">
+    <div id="topMenu">
+        <a href="/">Gallery</a>
+        <a href="/addImage">Add image</a>
+        <div id="searchField">
+            <input type="text" th:value="${search} != null ? ${search} : ''">
+            <button onclick="find()">Find</button>
+        </div>
+    </div>
+</block>
+
+<div th:fragment="topMenuCss" xmlns:th="http://www.w3.org/1999/xhtml">
+    <link rel="stylesheet" th:href="@{/css/topMenu.css}">
+</div>
+</body>
+</html>

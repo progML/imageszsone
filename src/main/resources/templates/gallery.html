@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="EN">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" th:href="@{/css/gallery.css}">
+    <th:block th:include="header::topMenuCss"/>
+</head>
+<body>
+<th:block th:include="header::topMenu"/>
+<div class="imageBlock">
+    <div class="imageEl" th:each="image:${images}" th:onclick="'window.location=\'/' + ${image.getId()} + '\'' ">
+        <!--/*@thymesVar id="image" type="com.progml.imageszsone.model.Image"*/-->
+        <img th:src="'/uploads/' + ${image.getImgLink()}" alt="linkToPage">
+        <div class="imageTags" th:text="${image.getTags()}"></div>
+    </div>
+</div>
+
+<th:block th:if="${markedZones} != null">
+    <div style="text-align: center">Found in marked zones:</div>
+    <div class="imageBlock">
+        <div class="imageEl" th:each="zone:${markedZones}"
+             th:onclick="'window.location=\'/' + ${zone.getImageId()} + '\'' ">
+            <!--/*@thymesVar id="image" type="com.progml.imageszsone.model.Image"*/-->
+            <!--            <img th:src="'/uploads/' + ${image.getImgLink()}" alt="linkToPage">-->
+            <div class="imageTags" th:text="${zone.getTags()}"></div>
+        </div>
+    </div>
+</th:block>
+
+</body>
+</html>

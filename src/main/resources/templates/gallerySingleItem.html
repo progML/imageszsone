@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="EN">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" th:href="@{/css/singleItem.css}">
+    <script th:src="@{/js/gallerySingleItem.js}"></script>
+    <th:block th:include="header::topMenuCss"/>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.6/cropper.css">
+
+</head>
+<body>
+<th:block th:include="header::topMenu"/>
+<div class="imageBlock">
+    <div class="imageEl">
+        <!--/*@thymesVar id="image" type="com.progml.imageszsone.model.Image"*/-->
+        <div style="display: none" id="imageId" th:text="${image.getId()}"></div>
+        <img id="IMAGE" th:src="'/uploads/' + ${image.getImgLink()}" alt="link" style="display: block; max-width: 100%">
+        <div style="clear: both"></div>
+        <th:block th:each="tag:${image.getTags()}">
+            <div class="tag" th:text="${tag}" th:onclick="findByTag([[${tag}]])"></div>
+        </th:block>
+    </div>
+
+    <div class="searchEl">
+        <div th:each="zone:${markedZones}" class="zones">
+            <th:block th:each="tag:${zone.getTags()}">
+                <div class="tag" th:text="${tag}" th:onclick="findByTag([[${tag}]])"></div>
+            </th:block>
+<!--            <div th:text="${zone.getTags()}"></div>-->
+            <div class="hidden" th:text="${zone.getId()}"></div>
+            <div class="hidden" th:text="${zone.getImageId()}"></div>
+
+            <div class="hidden offset" th:text="${zone.getLeftTop().getX()}"></div>
+            <div class="hidden offset" th:text="${zone.getLeftTop().getY()}"></div>
+            <div class="hidden" th:text="${zone.getRightBottom().getX()}"></div>
+            <div class="hidden" th:text="${zone.getRightBottom().getY()}"></div>
+
+            <div class="hidden" th:text="${zone.getRightBottom().getX() - zone.getLeftTop().getX()}"></div>
+            <div class="hidden" th:text="${zone.getRightBottom().getY() - zone.getLeftTop().getY()}"></div>
+        </div>
+    </div>
+
+    <div class="buttonZone">
+        <button id="turnOnSelection" onclick="markZone()">Mark zone</button>
+        <button id="confirmOnSelection" style="display: none" onclick="confirmMarkZone()">Confirm selection</button>
+        <div id="tagsInputDiv" style="display: none">
+            <label>Tags</label>
+            <input type="text" class='tagsInput'/>
+            <div id="placeForInput"></div>
+            <div class="plus" onclick="addNewTag()">+</div>
+            <button onclick="sendRequest()">Save on server</button>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

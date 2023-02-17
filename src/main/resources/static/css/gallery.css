@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #474747;
+    color: white;
+    font-size: 1.2em;
+}
+
+a {
+    color: white;
+    font-size: 1.2em;
+}
+
+label {
+    display: block;
+}
+
+.imageBlock {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+    padding: 5px;
+}
+
+.imageEl {
+    width: 30%;
+    height: 30%;
+    margin: 0 1% 1%;
+    border: 1px solid wheat;
+    cursor: pointer;
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageEl:hover {
+    background-color: #343639;
+}
+
+.imageEl img {
+    margin: 5px;
+    max-width: 100%;
+}
+
+.imageLink {
+
+}
+
+.imageTags {
+    margin: 5px;
+}
+
+.plus {
+    cursor: pointer;
+    color: green;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}

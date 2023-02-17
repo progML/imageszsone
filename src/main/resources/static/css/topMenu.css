@@ -1,0 +1,26 @@
+#topMenu {
+    background-color: #555a5f;
+    padding: 5px;
+    border-bottom: 1px solid white;
+}
+
+#topMenu a {
+    padding: 5px;
+}
+
+#topMenu a:hover {
+    background-color: #85878b;
+}
+
+#searchField {
+    display: inline-block;
+    float: right;
+}
+
+#searchField input {
+
+}
+
+#searchField button {
+    padding: 0 5px;
+}

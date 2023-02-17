@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="EN">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" th:href="@{/css/gallery.css}">
+    <script th:src="@{/js/galleryUpload.js}"></script>
+    <th:block th:include="header::topMenuCss"/>
+</head>
+<body>
+<th:block th:include="header::topMenu"/>
+<div>
+    <label>Tags</label>
+    <input type="text" class='tagsInput'>
+    <div id="placeForInput"></div>
+    <div class="plus" onclick="addNewTag()">+</div>
+    <form id="formImageUpload" method="POST" enctype="multipart/form-data" action="/upload">
+        <table>
+            <tr>
+                <td>File to upload:</td>
+                <td><input type="file" name="file"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Upload"/></td>
+            </tr>
+        </table>
+    </form>
+    <div onclick="addNewImg()">SAVE TO SERVER</div>
+</div>
+</body>
+</html>
