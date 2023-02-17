@@ -16,16 +16,16 @@
 
 Добаление новой картинки
 
-![alt text](./result/save.gif)
+![alt text](https://github.com/progML/imageszsone/blob/master/results/save.gif)
 
 Просмотр галереи и сортировка по тегам
 
-![alt text](./result/check.gif)
+![alt text](https://github.com/progML/imageszsone/blob/master/results/check.gif)
 
 Выделение области и создание тега
 
-![alt text](./result/create_zones.gif)
+![alt text](https://github.com/progML/imageszsone/blob/master/results/create_zones.gif)
 
 Поиск областей по тегам
 
-![alt text](./result/find_zones.gif)
+![alt text](https://github.com/progML/imageszsone/blob/master/results/find_zones.gif)
